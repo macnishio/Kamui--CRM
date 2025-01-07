@@ -1,0 +1,52 @@
+graph TB
+    subgraph Frontend
+        UI[User Interface]
+        3D[3D Character Display]
+        BabylonJS[BabylonJS Engine]
+    end
+
+    subgraph Backend
+        API[Flask API Server]
+        Auth[Authentication]
+        Tasks[Task Management]
+        ML[ML Services]
+    end
+
+    subgraph Database
+        PostgreSQL[(PostgreSQL)]
+        Redis[(Redis Cache)]
+    end
+
+    subgraph External
+        IMAP[IMAP Server]
+        AI[AI Services]
+    end
+
+    UI --> |HTTP/WebSocket| API
+    UI --> BabylonJS
+    BabylonJS --> 3D
+    3D --> |Load Models| BabylonJS
+
+    API --> Auth
+    API --> Tasks
+    API --> ML
+    
+    Auth --> PostgreSQL
+    Tasks --> PostgreSQL
+    ML --> PostgreSQL
+    
+    API --> Redis
+    Tasks --> Redis
+    
+    API --> IMAP
+    ML --> AI
+
+    classDef frontend fill:#e1f5fe,stroke:#01579b
+    classDef backend fill:#e8f5e9,stroke:#1b5e20
+    classDef database fill:#fff3e0,stroke:#e65100
+    classDef external fill:#f3e5f5,stroke:#4a148c
+
+    class UI,3D,BabylonJS frontend
+    class API,Auth,Tasks,ML backend
+    class PostgreSQL,Redis database
+    class IMAP,AI external

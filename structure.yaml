@@ -1,0 +1,53 @@
+```yaml
+src:
+  structure.yaml:
+    content: |-
+      FlaskベースのCRMシステムのプロジェクト構造
+      - プロジェクト概要:
+        * エンタープライズ向けCRMアプリケーション
+        * マイクロサービスアーキテクチャ
+        * AI統合機能
+      - 主要コンポーネント:
+        * バックエンド: Flask
+        * データベース: PostgreSQL
+        * キャッシュ: Redis
+        * 認証: Flask-Login
+        * タスク管理: Celery
+      - agent選定理由: claude-3-5-sonnet-20241022は、複雑なシステム設計と包括的なドキュメント作成に最適
+    dependency: []
+    agent: "claude-3-5-sonnet-20241022"
+    api: []
+  
+  requirements.txt:
+    content: |-
+      Flask全体のパッケージ依存関係リスト
+      - Webフレームワーク
+      - データベース接続
+      - 認証
+      - タスク管理
+      - AI/ML関連
+    dependency: []
+    agent: "claude-3-5-sonnet-20241022"
+    api: []
+
+  .env:
+    development.env:
+      content: |-
+        開発環境用の環境変数設定
+        - データベース接続情報
+        - セキュリティキー
+        - API設定
+      dependency: []
+      agent: "claude-3-5-sonnet-20241022"
+      api: []
+    
+    production.env:
+      content: |-
+        本番環境用の環境変数設定
+        - 本番データベース接続
+        - 本番用セキュリティ設定
+        - 本番API設定
+      dependency: []
+      agent: "claude-3-5-sonnet-20241022"
+      api: []
+```
